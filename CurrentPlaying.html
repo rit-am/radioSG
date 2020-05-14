@@ -1,0 +1,18 @@
+<div id="output" class="oput">Nothing</div>
+
+<script>
+    var myContainer = "";
+
+    var a = new XMLHttpRequest();
+    a.open("GET", "http://sharvasg.servemp3.com:8000/status-json.xsl", true);
+    a.onreadystatechange = function () {
+        console.log(this);
+        if (this.readyState == 4) {
+            var obj = JSON.parse(this.responseText);
+            document.getElementById("output").innerHTML = "Currently Playing : " + obj.icestats.source.title;
+            console.log(obj);
+        }
+
+    }
+    a.send();
+</script>
