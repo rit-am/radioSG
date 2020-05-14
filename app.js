@@ -146,8 +146,12 @@ function stopRecording() {
 
         //disable the stop button, enable the record too allow for new recordings
         stopButton.disabled = true;
-        recordButton.disabled = false;
+        recordButton.disabled = true;
         pauseButton.disabled = true;
+        submitButton.contentEditable = true;
+        submitButton.disabled = false;
+
+
 
         //reset button just in case the recording is stopped while paused
         pauseButton.innerHTML="Pause";
@@ -232,4 +236,5 @@ function createDownloadLink(blob) {
         a.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         a.send("TrackName=" + varTrackName + "&TrackDescription=" + varTrackDescription + "&Category=" + varCategory + "&Artist=" + varArtistName + "&Phone=" + varPhone + "&File=" + filename);
         console.log("Sending Metadata");
+        alert("Thank you for the submission. The Track will be forwarded to our moderators for approval. Please feel free to submit more Tracks!");
     }
